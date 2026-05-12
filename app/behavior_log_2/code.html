@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RoboPetCare - Behavior Log 7-Day</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#5a432a",
+                        "tertiary-fixed-dim": "#e1c1a0",
+                        "inverse-surface": "#2a313d",
+                        "inverse-on-surface": "#ebf1ff",
+                        "on-primary-fixed": "#321200",
+                        "on-secondary-fixed-variant": "#004f50",
+                        "outline": "#877368",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#002020",
+                        "secondary-fixed-dim": "#7ed5d4",
+                        "on-error": "#ffffff",
+                        "secondary": "#006a6a",
+                        "surface-bright": "#f9f9ff",
+                        "on-tertiary-fixed": "#291804",
+                        "error-container": "#ffdad6",
+                        "background": "#f9f9ff",
+                        "surface-container": "#e7eefe",
+                        "primary-container": "#ff9f64",
+                        "surface-variant": "#dce2f3",
+                        "surface-dim": "#d3daea",
+                        "on-tertiary-fixed-variant": "#59432a",
+                        "inverse-primary": "#ffb68c",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#9af1f1",
+                        "primary-fixed": "#ffdbc9",
+                        "tertiary": "#725a3f",
+                        "tertiary-container": "#d0b191",
+                        "surface": "#f9f9ff",
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#944a16",
+                        "primary": "#944a16",
+                        "outline-variant": "#dac2b5",
+                        "on-surface-variant": "#54433a",
+                        "primary-fixed-dim": "#ffb68c",
+                        "tertiary-fixed": "#ffddbb",
+                        "on-background": "#151c27",
+                        "surface-container-low": "#f0f3ff",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#773400",
+                        "surface-container-high": "#e2e8f8",
+                        "on-secondary-container": "#006e6e",
+                        "secondary-container": "#97eeee",
+                        "on-surface": "#151c27",
+                        "surface-container-highest": "#dce2f3",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#753400"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "8px",
+                        "base": "8px",
+                        "xl": "32px",
+                        "xs": "4px",
+                        "lg": "24px",
+                        "gutter": "16px",
+                        "md": "16px",
+                        "margin": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Lexend"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Lexend"],
+                        "headline-md": ["Lexend"],
+                        "label-lg": ["Plus Jakarta Sans"],
+                        "body-sm": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased pb-[96px] md:pb-0">
+<!-- TopAppBar -->
+<header class="bg-white shadow-[0_4px_20px_-5px_rgba(0,128,128,0.1)] border-b border-gray-100 font-[Lexend] tracking-tight flex justify-between items-center w-full px-4 h-16 fixed top-0 z-50">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-variant overflow-hidden">
+<img alt="Pet Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJgHsk6wPtmvmTVHcABqMWcIEjgUi4HA_ww7Lg6KyaEZL5bvJfRAdf5lsb66LvZoGIIvxtRDOE6St2QCWGX_Xmmu0idYdN-t3pFVJEKGQ6wypJ74AcYwOs7JDPP1Qr3WK9yvxDEa9EZXdzgDLisaGsPkfhlgSa3im9wAqOMi_fuH_k1JnVq0EzzuAa3w8IjdU4Ch1YcXAlRXY-vEsvQNcqF5cd0eJtEUGsXXSdkM66fIvp1fVs7McppQ1nF0zv_mhTntaMJmv8gzE"/>
+</div>
+<h1 class="text-[#FF9F64] font-extrabold text-xl tracking-tight">RoboPetCare</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="text-xs font-semibold px-2 py-1 border border-gray-200 rounded text-gray-500 hover:text-[#FF9F64] hover:border-[#FF9F64] transition-colors">EN/中</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-[#FF9F64] hover:bg-gray-50 transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+
+<!-- Main Content -->
+<main class="pt-[80px] px-margin md:px-xl max-w-5xl mx-auto space-y-lg">
+
+<!-- Page Header -->
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Behavior Log (行为日志)</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">7-Day activity summary for Bella (Bella 的 7 天活动汇总)</p>
+</div>
+
+<!-- View Toggle -->
+<div class="flex bg-surface-container-low rounded-lg p-1 border border-surface-variant w-fit">
+<button class="px-sm py-xs rounded text-on-surface-variant font-label-md text-label-md hover:bg-surface-variant transition-all">24h</button>
+<button class="px-sm py-xs rounded text-on-surface font-label-md text-label-md bg-white shadow-sm transition-all">7-Day (7天)</button>
+</div>
+
+<section class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-md border border-surface-container">
+<div class="flex items-center justify-between flex-wrap gap-2">
+<h3 class="font-headline-sm text-headline-sm text-secondary">7-Day Interpretation</h3>
+<span class="rounded-full px-sm py-[2px] bg-primary-container/25 text-on-primary-container font-label-md text-label-md">Gradual change</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-sm">Movement has been trending lower for 3 consecutive days. Eating and rest remain mostly stable.</p>
+</section>
+
+<!-- Bento Grid Summary Cards -->
+<div class="grid grid-cols-2 gap-md">
+
+<!-- Movement Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-md border border-surface-container">
+<div class="flex items-center gap-sm mb-sm">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">directions_run</span>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface-variant">Movement (运动)</span>
+</div>
+<p class="font-headline-md text-headline-md text-on-surface">3.2<span class="font-body-sm text-body-sm text-on-surface-variant ml-xs">hrs/day</span></p>
+<div class="mt-sm h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 65%"></div>
+</div>
+<p class="font-label-md text-label-md text-secondary mt-xs">+12% vs last week (比上周 +12%)</p>
+</div>
+
+<!-- Rest Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-md border border-surface-container">
+<div class="flex items-center gap-sm mb-sm">
+<div class="w-10 h-10 rounded-full bg-secondary-container/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-[20px]" style="font-variation-settings: 'FILL' 1;">hotel</span>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface-variant">Rest (休息)</span>
+</div>
+<p class="font-headline-md text-headline-md text-on-surface">14.5<span class="font-body-sm text-body-sm text-on-surface-variant ml-xs">hrs/day</span></p>
+<div class="mt-sm h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 82%"></div>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant mt-xs">Normal range (正常范围)</p>
+</div>
+
+<!-- Eating Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-md border border-surface-container">
+<div class="flex items-center gap-sm mb-sm">
+<div class="w-10 h-10 rounded-full bg-tertiary-container/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary text-[20px]" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface-variant">Eating (进食)</span>
+</div>
+<p class="font-headline-md text-headline-md text-on-surface">2.1<span class="font-body-sm text-body-sm text-on-surface-variant ml-xs">cups/day</span></p>
+<div class="mt-sm h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-container rounded-full" style="width: 70%"></div>
+</div>
+<p class="font-label-md text-label-md text-primary-container mt-xs" style="color: #944a16;">-8% vs last week (比上周 -8%)</p>
+</div>
+
+<!-- Play Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-md border border-surface-container">
+<div class="flex items-center gap-sm mb-sm">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">sports_esports</span>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface-variant">Playing (玩耍)</span>
+</div>
+<p class="font-headline-md text-headline-md text-on-surface">1.8<span class="font-body-sm text-body-sm text-on-surface-variant ml-xs">sessions/day</span></p>
+<div class="mt-sm h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 55%"></div>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant mt-xs">Avg 25 min each (平均每次25分钟)</p>
+</div>
+
+</div>
+
+<!-- 7-Day Trend Chart -->
+<section class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-lg border border-surface-container">
+<h3 class="font-headline-sm text-headline-sm text-secondary mb-md">Weekly Trend (每周趋势)</h3>
+<div class="flex-1 min-h-[200px] flex items-end justify-between gap-xs pt-xl">
+<div class="w-full h-full flex items-end gap-sm">
+<!-- Mon -->
+<div class="flex-1 flex flex-col justify-end h-full gap-[2px]">
+<div class="bg-primary-container h-[30%] rounded-t-sm w-full" title="Movement"></div>
+<div class="bg-secondary h-[45%] w-full" title="Rest"></div>
+<div class="bg-tertiary-container h-[15%] rounded-b-sm w-full" title="Eating"></div>
+</div>
+<!-- Tue -->
+<div class="flex-1 flex flex-col justify-end h-[85%] gap-[2px]">
+<div class="bg-primary-container h-[25%] rounded-t-sm w-full" title="Movement"></div>
+<div class="bg-secondary h-[40%] w-full" title="Rest"></div>
+<div class="bg-tertiary-container h-[20%] rounded-b-sm w-full" title="Eating"></div>
+</div>
+<!-- Wed -->
+<div class="flex-1 flex flex-col justify-end h-[90%] gap-[2px]">
+<div class="bg-primary-container h-[35%] rounded-t-sm w-full" title="Movement"></div>
+<div class="bg-secondary h-[35%] w-full" title="Rest"></div>
+<div class="bg-tertiary-container h-[20%] rounded-b-sm w-full" title="Eating"></div>
+</div>
+<!-- Thu -->
+<div class="flex-1 flex flex-col justify-end h-[75%] gap-[2px]">
+<div class="bg-primary-container h-[20%] rounded-t-sm w-full" title="Movement"></div>
+<div class="bg-secondary h-[40%] w-full" title="Rest"></div>
+<div class="bg-tertiary-container h-[15%] rounded-b-sm w-full" title="Eating"></div>
+</div>
+<!-- Fri -->
+<div class="flex-1 flex flex-col justify-end h-[80%] gap-[2px]">
+<div class="bg-primary-container h-[30%] rounded-t-sm w-full" title="Movement"></div>
+<div class="bg-secondary h-[35%] w-full" title="Rest"></div>
+<div class="bg-tertiary-container h-[15%] rounded-b-sm w-full" title="Eating"></div>
+</div>
+<!-- Sat -->
+<div class="flex-1 flex flex-col justify-end h-[95%] gap-[2px]">
+<div class="bg-primary-container h-[40%] rounded-t-sm w-full" title="Movement"></div>
+<div class="bg-secondary h-[30%] w-full" title="Rest"></div>
+<div class="bg-tertiary-container h-[25%] rounded-b-sm w-full" title="Eating"></div>
+</div>
+<!-- Sun -->
+<div class="flex-1 flex flex-col justify-end h-[70%] gap-[2px]">
+<div class="bg-primary-container h-[25%] rounded-t-sm w-full" title="Movement"></div>
+<div class="bg-secondary h-[30%] w-full" title="Rest"></div>
+<div class="bg-tertiary-container h-[15%] rounded-b-sm w-full" title="Eating"></div>
+</div>
+</div>
+</div>
+<!-- Day Labels -->
+<div class="flex gap-sm mt-sm">
+<span class="flex-1 text-center font-label-md text-label-md text-on-surface-variant">Mon</span>
+<span class="flex-1 text-center font-label-md text-label-md text-on-surface-variant">Tue</span>
+<span class="flex-1 text-center font-label-md text-label-md text-on-surface-variant">Wed</span>
+<span class="flex-1 text-center font-label-md text-label-md text-on-surface-variant">Thu</span>
+<span class="flex-1 text-center font-label-md text-label-md text-on-surface-variant">Fri</span>
+<span class="flex-1 text-center font-label-md text-label-md text-on-surface-variant">Sat</span>
+<span class="flex-1 text-center font-label-md text-label-md text-on-surface-variant">Sun</span>
+</div>
+<!-- Legend -->
+<div class="flex justify-center gap-md mt-md">
+<div class="flex items-center gap-xs font-label-md text-label-md text-on-surface-variant">
+<span class="w-3 h-3 rounded-full bg-primary-container inline-block"></span> Movement (运动)
+</div>
+<div class="flex items-center gap-xs font-label-md text-label-md text-on-surface-variant">
+<span class="w-3 h-3 rounded-full bg-secondary inline-block"></span> Rest (休息)
+</div>
+<div class="flex items-center gap-xs font-label-md text-label-md text-on-surface-variant">
+<span class="w-3 h-3 rounded-full bg-tertiary-container inline-block"></span> Eating (进食)
+</div>
+</div>
+</section>
+
+<section class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-md border border-surface-container">
+<h3 class="font-headline-sm text-headline-sm text-secondary mb-sm">Continuous Trend</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Movement stayed below baseline for 3 consecutive days, which suggests a real pattern instead of random fluctuation.</p>
+</div>
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-md border border-surface-container">
+<h3 class="font-headline-sm text-headline-sm text-secondary mb-sm">Single-Day Spike</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Rest increased on Wednesday only, then returned to normal. This looks like an isolated daily spike.</p>
+</div>
+</section>
+
+<section class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-md border border-surface-container">
+<h3 class="font-headline-sm text-headline-sm text-secondary mb-sm">What This Trend Suggests</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Current weekly signal is watch and continue observation, not an emergency. Re-check the next 48 hours before escalating concern.</p>
+</section>
+
+<!-- Daily Breakdown -->
+<section class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-lg border border-surface-container">
+<h3 class="font-headline-sm text-headline-sm text-secondary mb-md">Daily Breakdown (每日详情)</h3>
+
+<!-- Day Entry -->
+<div class="space-y-sm">
+<!-- Monday -->
+<div class="border border-surface-variant rounded-lg p-md hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-secondary-container/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-[16px]">calendar_today</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Monday, Apr 16 (周一)</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Movement 2.8h · Rest 14h · Eating 2.3 cups</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+</div>
+<!-- Tuesday -->
+<div class="border border-surface-variant rounded-lg p-md hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-secondary-container/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-[16px]">calendar_today</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Tuesday, Apr 17 (周二)</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Movement 3.5h · Rest 15h · Eating 2.0 cups</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+</div>
+<!-- Wednesday -->
+<div class="border border-surface-variant rounded-lg p-md hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-secondary-container/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-[16px]">calendar_today</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Wednesday, Apr 18 (周三)</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Movement 4.1h · Rest 13h · Eating 2.5 cups</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+</div>
+<!-- Thursday -->
+<div class="border border-surface-variant rounded-lg p-md hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-secondary-container/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-[16px]">calendar_today</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Thursday, Apr 19 (周四)</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Movement 2.5h · Rest 15h · Eating 1.9 cups</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+</div>
+<!-- Friday -->
+<div class="border border-surface-variant rounded-lg p-md hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-secondary-container/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-[16px]">calendar_today</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Friday, Apr 20 (周五)</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Movement 3.2h · Rest 14h · Eating 2.1 cups</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+</div>
+<!-- Saturday -->
+<div class="border border-surface-variant rounded-lg p-md hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-secondary-container/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-[16px]">calendar_today</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Saturday, Apr 21 (周六)</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Movement 4.5h · Rest 12h · Eating 2.8 cups</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+</div>
+<!-- Sunday -->
+<div class="border border-surface-variant rounded-lg p-md bg-primary-container/5 cursor-pointer">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-primary-container/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[16px]">calendar_today</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Sunday, Apr 22 (周日 · 今天)</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Movement 1.8h · Rest 14h · Eating 1.5 cups</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+</div>
+</div>
+</section>
+
+</main>
+
+<!-- BottomNavBar - 5 tabs -->
+<nav class="md:hidden bg-white/90 backdrop-blur-md fixed bottom-0 left-0 w-full z-50 rounded-t-2xl shadow-[0_-4px_20px_-5px_rgba(255,159,100,0.15)] border-t border-gray-100 flex justify-around items-center h-20 pb-safe pt-2 px-2">
+<a class="flex flex-col items-center justify-center text-gray-400 hover:text-[#FF9F64] active:scale-90 duration-200 transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+<span class="font-['Lexend'] text-[10px] font-medium leading-tight text-center">Home<br/>(首页)</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#FF9F64] bg-orange-50 rounded-xl px-3 py-1 active:scale-90 duration-200 transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="timeline" style="font-variation-settings: 'FILL' 1;">timeline</span>
+<span class="font-['Lexend'] text-[10px] font-medium leading-tight text-center">Behavior<br/>(行为日志)</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 hover:text-[#FF9F64] active:scale-90 duration-200 transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="forum">forum</span>
+<span class="font-['Lexend'] text-[10px] font-medium leading-tight text-center">Community<br/>(社区)</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 hover:text-[#FF9F64] active:scale-90 duration-200 transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="auto_awesome">auto_awesome</span>
+<span class="font-['Lexend'] text-[10px] font-medium leading-tight text-center">AI<br/>(AI分析)</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 hover:text-[#FF9F64] active:scale-90 duration-200 transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="font-['Lexend'] text-[10px] font-medium leading-tight text-center">Profile<br/>(我的)</span>
+</a>
+</nav>
+
+<!-- Desktop Nav -->
+<nav class="hidden md:flex fixed top-0 left-0 w-full h-16 bg-white/90 backdrop-blur-md border-b border-gray-100 z-50 items-center justify-center gap-xl shadow-[0_4px_20px_-5px_rgba(0,128,128,0.1)]">
+<span class="text-[#FF9F64] font-extrabold text-xl tracking-tight mr-xl">RoboPetCare</span>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-secondary transition-colors pb-sm border-b-2 border-transparent" href="#">Home (首页)</a>
+<a class="font-label-lg text-label-lg text-secondary pb-sm border-b-2 border-secondary" href="#">Behavior (行为日志)</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-secondary transition-colors pb-sm border-b-2 border-transparent" href="#">Community (社区)</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-secondary transition-colors pb-sm border-b-2 border-transparent" href="#">AI (AI分析)</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-secondary transition-colors pb-sm border-b-2 border-transparent" href="#">Profile (我的)</a>
+</nav>
+</body></html>

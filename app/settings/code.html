@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RoboPetCare - Settings</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#97eeee",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#ffb68c",
+                        "on-surface": "#151c27",
+                        "tertiary": "#725a3f",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#54433a",
+                        "primary": "#944a16",
+                        "on-primary-fixed-variant": "#753400",
+                        "surface-container-high": "#e2e8f8",
+                        "inverse-primary": "#ffb68c",
+                        "background": "#f9f9ff",
+                        "on-background": "#151c27",
+                        "surface-container-low": "#f0f3ff",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#ffdbc9",
+                        "on-error": "#ffffff",
+                        "surface-container": "#e7eefe",
+                        "surface-dim": "#d3daea",
+                        "surface-tint": "#944a16",
+                        "inverse-on-surface": "#ebf1ff",
+                        "surface-container-highest": "#dce2f3",
+                        "outline": "#877368",
+                        "tertiary-fixed-dim": "#e1c1a0",
+                        "on-tertiary-fixed-variant": "#59432a",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#d0b191",
+                        "on-error-container": "#93000a",
+                        "secondary": "#006a6a",
+                        "secondary-fixed": "#9af1f1",
+                        "on-secondary-fixed-variant": "#004f50",
+                        "surface": "#f9f9ff",
+                        "tertiary-fixed": "#ffddbb",
+                        "on-tertiary-fixed": "#291804",
+                        "on-tertiary": "#ffffff",
+                        "surface-bright": "#f9f9ff",
+                        "on-secondary-fixed": "#002020",
+                        "surface-variant": "#dce2f3",
+                        "secondary-fixed-dim": "#7ed5d4",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#5a432a",
+                        "on-secondary-container": "#006e6e",
+                        "inverse-surface": "#2a313d",
+                        "on-primary-container": "#773400",
+                        "primary-container": "#ff9f64",
+                        "outline-variant": "#dac2b5",
+                        "on-primary-fixed": "#321200"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "xs": "4px",
+                        "margin": "20px",
+                        "xl": "32px",
+                        "gutter": "16px",
+                        "base": "8px",
+                        "sm": "8px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Lexend"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Lexend"],
+                        "body-sm": ["Plus Jakarta Sans"],
+                        "headline-md": ["Lexend"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "label-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-4 h-16 bg-surface-container-lowest shadow-[0_4px_20px_-5px_rgba(0,128,128,0.1)] border-b border-surface-variant">
+<div class="flex items-center gap-3">
+<img alt="User Profile" class="w-8 h-8 rounded-full object-cover border border-outline-variant" data-alt="Close up portrait of a young professional man with short dark hair, smiling warmly in soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBI2zVKK0rA5d0Drvn2-zp9XmjO81idxrVGNp6liCxxtXtriREUuPwFUZjKAiLzHaR8Ic3zW8DmFL3aiTXO_PtXZBPMTrOfQH8rKjdgkOcLbPjtU1F4-5HaVkwa9p4cjzAKKqPYrYmdQgQDBa5t_rsjqjRIdZgRkrfjLHWcGyrqxjginbIMj3IgqRs856Sf8lbjfztid9JbeLcM0L3BUi3YoEk7Et0SyMUzGgy1vQAXKWrXnALi-d4msdFgkSS_Q7q5LeB7nNqUY8w"/>
+</div>
+<div class="text-[#FF9F64] font-extrabold text-xl tracking-tight font-headline-sm">RoboPetCare</div>
+<button aria-label="Notifications" class="text-[#FF9F64] hover:bg-surface-container-highest transition-colors active:scale-95 duration-150 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 pb-32 px-4 sm:px-6 md:px-8 max-w-4xl mx-auto">
+<header class="mb-lg">
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Settings</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Manage your account, devices, and preferences.</p>
+</header>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-md">
+<!-- Profile Section -->
+<section class="md:col-span-12 bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/30 p-md flex flex-col sm:flex-row items-center gap-md">
+<img alt="Alex's Profile Picture" class="w-20 h-20 rounded-full object-cover shadow-sm border-2 border-surface-container" data-alt="Close up portrait of a young professional man with short dark hair, smiling warmly in soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUJkMGLV60gtyYofWZKQx_ZfC8MHNHMl0SKUqHNCD4Qh7Wo_0otdCPyrnLLC3Zy6nvDunRMMERg-f9IQFxV_eet-qyNPs6ftsn2fLOMFywnYNz4Z1CUC0blYu4zK-Y6XcRqATFRJLGUPRdoobNcwfpzYLlN676I0akhP6L-qpAKm79JTJTmNmiqUJrx7HA4JkHpRzxXRQAVS_cGpnhVh92vNze3F0LigA8ouC0zmrhb8nIc38Z8wQOelKpNMeMU-9174BGKL58aIg"/>
+<div class="flex-1 text-center sm:text-left">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Alex</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">alex@example.com</p>
+</div>
+<button class="px-6 py-2 h-12 rounded-lg border-2 border-secondary text-secondary font-label-lg text-label-lg hover:bg-secondary/5 transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="edit">edit</span>
+                    Edit Profile
+                </button>
+</section>
+<!-- Preferences Bento Grid -->
+<div class="md:col-span-12 grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Language Settings -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/30 p-md flex flex-col justify-between">
+<div class="mb-4">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-secondary" data-icon="language">language</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Language</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Select your preferred app language.</p>
+</div>
+<div class="bg-surface-variant p-1 rounded-lg flex relative z-0">
+<button class="flex-1 py-2 px-4 rounded-md bg-surface-container-lowest shadow-sm font-label-lg text-label-lg text-on-surface transition-all z-10 flex items-center justify-center gap-2">
+<span>English</span>
+</button>
+<button class="flex-1 py-2 px-4 rounded-md font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-all z-10 flex items-center justify-center gap-2">
+<span>中文</span>
+</button>
+</div>
+</section>
+<!-- Unit Preferences -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/30 p-md flex flex-col justify-between">
+<div class="mb-4">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-secondary" data-icon="straighten">straighten</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Units</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Measurement system for portions &amp; weight.</p>
+</div>
+<div class="bg-surface-variant p-1 rounded-lg flex relative z-0">
+<button class="flex-1 py-2 px-4 rounded-md bg-surface-container-lowest shadow-sm font-label-lg text-label-lg text-on-surface transition-all z-10">
+                            Metric (kg, ml)
+                        </button>
+<button class="flex-1 py-2 px-4 rounded-md font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-all z-10">
+                            Imperial (lb, oz)
+                        </button>
+</div>
+</section>
+</div>
+<!-- Device Management -->
+<section class="md:col-span-12 bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/30 p-md">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-secondary" data-icon="devices">devices</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Device Management</h3>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-lg border border-outline-variant/20">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="kitchen">kitchen</span>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface">RoboFeeder Pro</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Kitchen location</p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md">
+<span class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_rgba(0,106,106,0.5)]"></span>
+                            Online
+                        </span>
+<button class="text-secondary font-label-md text-label-md hover:underline">Manage</button>
+</div>
+</div>
+</section>
+<!-- Notifications -->
+<section class="md:col-span-12 bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/30 p-md">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-secondary" data-icon="notifications_active">notifications_active</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Notifications</h3>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface">Push Notifications</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Receive alerts for feeding times and low food.</p>
+</div>
+<!-- Toggle Switch (On State) -->
+<button aria-pressed="true" class="w-12 h-6 rounded-full bg-secondary relative transition-colors">
+<span class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full shadow-sm transition-transform"></span>
+</button>
+</div>
+<div class="w-full h-px bg-surface-variant"></div>
+<div class="flex items-center justify-between">
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface">Weekly Reports</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Email summary of pet's eating habits.</p>
+</div>
+<!-- Toggle Switch (Off State) -->
+<button aria-pressed="false" class="w-12 h-6 rounded-full bg-surface-variant border border-outline-variant relative transition-colors">
+<span class="absolute left-1 top-1 w-4 h-4 bg-outline rounded-full shadow-sm transition-transform"></span>
+</button>
+</div>
+</div>
+</section>
+<!-- About & Support -->
+<section class="md:col-span-12 bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/30 overflow-hidden">
+<a class="flex items-center justify-between p-md hover:bg-surface-container-low transition-colors border-b border-surface-variant" href="#">
+<div class="flex items-center gap-3 text-on-surface">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="help">help</span>
+<span class="font-label-lg text-label-lg">Help &amp; Support</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</a>
+<a class="flex items-center justify-between p-md hover:bg-surface-container-low transition-colors border-b border-surface-variant" href="#">
+<div class="flex items-center gap-3 text-on-surface">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="info">info</span>
+<span class="font-label-lg text-label-lg">About RoboPetCare</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-body-sm text-body-sm text-on-surface-variant">v2.4.1</span>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</div>
+</a>
+<a class="flex items-center justify-between p-md hover:bg-surface-container-low transition-colors" href="#">
+<div class="flex items-center gap-3 text-error">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-lg text-label-lg">Log Out</span>
+</div>
+</a>
+</section>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 pb-safe pt-2 h-20 bg-surface-container-lowest/90 backdrop-blur-md rounded-t-2xl border-t border-surface-variant shadow-[0_-4px_20px_-5px_rgba(255,159,100,0.15)] md:hidden">
+<a class="flex flex-col items-center justify-center text-gray-400 hover:text-[#FF9F64] transition-all active:scale-90 duration-200 w-16" href="#">
+<span class="material-symbols-outlined text-2xl mb-1" data-icon="dashboard">dashboard</span>
+<span class="font-['Lexend'] text-[10px] font-medium truncate w-full text-center">Dashboard (仪表盘)</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 hover:text-[#FF9F64] transition-all active:scale-90 duration-200 w-16" href="#">
+<span class="material-symbols-outlined text-2xl mb-1" data-icon="pets">pets</span>
+<span class="font-['Lexend'] text-[10px] font-medium truncate w-full text-center">Feeding (喂食)</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 hover:text-[#FF9F64] transition-all active:scale-90 duration-200 w-16 relative" href="#">
+<span class="material-symbols-outlined text-2xl mb-1" data-icon="notifications_active">notifications_active</span>
+<span class="font-['Lexend'] text-[10px] font-medium truncate w-full text-center">Alerts (提醒)</span>
+</a>
+<!-- Active Tab -->
+<a class="flex flex-col items-center justify-center text-[#FF9F64] bg-orange-50 px-3 py-1 rounded-xl transition-all active:scale-90 duration-200 w-16" href="#">
+<span class="material-symbols-outlined fill text-2xl mb-1" data-icon="settings">settings</span>
+<span class="font-['Lexend'] text-[10px] font-medium truncate w-full text-center">Settings (设置)</span>
+</a>
+</nav>
+</body></html>

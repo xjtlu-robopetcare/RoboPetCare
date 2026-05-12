@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RoboPetCare - New Post</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#5a432a",
+                        "tertiary-fixed-dim": "#e1c1a0",
+                        "inverse-surface": "#2a313d",
+                        "inverse-on-surface": "#ebf1ff",
+                        "on-primary-fixed": "#321200",
+                        "on-secondary-fixed-variant": "#004f50",
+                        "outline": "#877368",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#002020",
+                        "secondary-fixed-dim": "#7ed5d4",
+                        "on-error": "#ffffff",
+                        "secondary": "#006a6a",
+                        "surface-bright": "#f9f9ff",
+                        "on-tertiary-fixed": "#291804",
+                        "error-container": "#ffdad6",
+                        "background": "#f9f9ff",
+                        "surface-container": "#e7eefe",
+                        "primary-container": "#ff9f64",
+                        "surface-variant": "#dce2f3",
+                        "surface-dim": "#d3daea",
+                        "on-tertiary-fixed-variant": "#59432a",
+                        "inverse-primary": "#ffb68c",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#9af1f1",
+                        "primary-fixed": "#ffdbc9",
+                        "tertiary": "#725a3f",
+                        "tertiary-container": "#d0b191",
+                        "surface": "#f9f9ff",
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#944a16",
+                        "primary": "#944a16",
+                        "outline-variant": "#dac2b5",
+                        "on-surface-variant": "#54433a",
+                        "primary-fixed-dim": "#ffb68c",
+                        "tertiary-fixed": "#ffddbb",
+                        "on-background": "#151c27",
+                        "surface-container-low": "#f0f3ff",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#773400",
+                        "surface-container-high": "#e2e8f8",
+                        "on-secondary-container": "#006e6e",
+                        "secondary-container": "#97eeee",
+                        "on-surface": "#151c27",
+                        "surface-container-highest": "#dce2f3",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#753400"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "8px",
+                        "base": "8px",
+                        "xl": "32px",
+                        "xs": "4px",
+                        "lg": "24px",
+                        "gutter": "16px",
+                        "md": "16px",
+                        "margin": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Lexend"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Lexend"],
+                        "headline-md": ["Lexend"],
+                        "label-lg": ["Plus Jakarta Sans"],
+                        "body-sm": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased">
+<!-- Top Bar - New Post -->
+<header class="bg-white shadow-[0_4px_20px_-5px_rgba(0,128,128,0.1)] border-b border-gray-100 font-[Lexend] tracking-tight flex justify-between items-center w-full px-4 h-16 fixed top-0 z-50">
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface hover:bg-gray-50 transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm text-on-surface">New Post (发布帖子)</h1>
+<button class="bg-primary text-on-primary font-label-lg text-label-lg px-md py-sm rounded-full hover:bg-primary/90 transition-colors">
+Post (发布)
+</button>
+</header>
+
+<!-- Main Content -->
+<main class="pt-[80px] px-margin md:px-xl max-w-2xl mx-auto space-y-lg">
+
+<!-- Photo Upload Area -->
+<section>
+<div class="border-2 border-dashed border-outline-variant rounded-xl min-h-[240px] flex flex-col items-center justify-center gap-sm bg-surface-container-lowest hover:border-secondary hover:bg-secondary/5 transition-colors cursor-pointer p-lg">
+<div class="w-16 h-16 rounded-full bg-primary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[32px]" style="font-variation-settings: 'FILL' 1;">add_a_photo</span>
+</div>
+<p class="font-headline-sm text-headline-sm text-on-surface">Add Photo (添加照片)</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Tap to select photos or take a new picture (点击选择照片或拍摄新照片)</p>
+</div>
+<!-- Uploaded preview row -->
+<div class="flex gap-sm mt-sm">
+<div class="relative w-20 h-20 rounded-lg bg-gradient-to-br from-primary-container/30 to-secondary-container/30 flex items-center justify-center border border-surface-variant">
+<span class="material-symbols-outlined text-[24px] text-on-surface-variant/40" style="font-variation-settings: 'FILL' 1;">pets</span>
+<button class="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-error text-on-error flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+</div>
+<div class="w-20 h-20 rounded-lg border-2 border-dashed border-outline-variant flex items-center justify-center hover:border-secondary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-on-surface-variant/40">add</span>
+</div>
+</div>
+</section>
+
+<!-- Caption -->
+<section>
+<label class="font-label-lg text-label-lg text-on-surface block mb-xs">Caption (文案)</label>
+<textarea class="w-full rounded-lg border border-outline-variant bg-surface-container-lowest p-md font-body-md text-body-md text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors min-h-[120px] resize-none placeholder:text-on-surface-variant/50" placeholder="Share something about your pet... (分享你家宠物的日常...)"></textarea>
+<div class="flex justify-end mt-xs">
+<span class="font-label-md text-label-md text-on-surface-variant">0 / 500</span>
+</div>
+</section>
+
+<!-- Category Selection -->
+<section>
+<label class="font-label-lg text-label-lg text-on-surface block mb-xs">Category (分类)</label>
+<div class="flex gap-sm flex-wrap">
+<button class="rounded-full px-md py-xs bg-secondary-container text-on-secondary-container font-label-lg text-label-lg border border-secondary/20">Daily Life (日常)</button>
+<button class="rounded-full px-md py-xs bg-surface-container text-on-surface-variant font-label-lg text-label-lg border border-outline-variant hover:bg-surface-container-high transition-colors">Health Tips (健康贴士)</button>
+<button class="rounded-full px-md py-xs bg-surface-container text-on-surface-variant font-label-lg text-label-lg border border-outline-variant hover:bg-surface-container-high transition-colors">Funny (搞笑瞬间)</button>
+<button class="rounded-full px-md py-xs bg-surface-container text-on-surface-variant font-label-lg text-label-lg border border-outline-variant hover:bg-surface-container-high transition-colors">Q&A (问答)</button>
+</div>
+</section>
+
+<!-- Additional Options -->
+<section class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-lg border border-surface-container space-y-md">
+<!-- Location -->
+<div class="flex items-center justify-between py-sm">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-on-surface-variant">location_on</span>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Add Location (添加位置)</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Tag your location (标记你的位置)</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+<div class="border-t border-surface-variant"></div>
+<!-- Visibility -->
+<div class="flex items-center justify-between py-sm">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-on-surface-variant">visibility</span>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Visibility (可见性)</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Everyone can see (所有人可见)</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+<div class="border-t border-surface-variant"></div>
+<!-- Tag Pet -->
+<div class="flex items-center justify-between py-sm">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-on-surface-variant">pets</span>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Tag Pet (标记宠物)</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Bella — Golden Retriever</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+</section>
+
+<!-- Post Preview Card -->
+<section class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-surface-container overflow-hidden">
+<div class="p-sm border-b border-surface-variant">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-surface-variant overflow-hidden">
+<img alt="User" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJgHsk6wPtmvmTVHcABqMWcIEjgUi4HA_ww7Lg6KyaEZL5bvJfRAdf5lsb66LvZoGIIvxtRDOE6St2QCWGX_Xmmu0idYdN-t3pFVJEKGQ6wypJ74AcYwOs7JDPP1Qr3WK9yvxDEa9EZXdzgDLisaGsPkfhlgSa3im9wAqOMi_fuH_k1JnVq0EzzuAa3w8IjdU4Ch1YcXAlRXY-vEsvQNcqF5cd0eJtEUGsXXSdkM66fIvp1fVs7McppQ1nF0zv_mhTntaMJmv8gzE"/>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface">Preview (预览)</span>
+</div>
+</div>
+<div class="w-full aspect-video bg-gradient-to-br from-primary-container/20 to-secondary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-[40px] text-on-surface-variant/20" style="font-variation-settings: 'FILL' 1;">image</span>
+</div>
+<div class="p-md">
+<p class="font-body-sm text-body-sm text-on-surface-variant">Your caption will appear here... (你的文案将显示在这里...)</p>
+<div class="flex items-center gap-sm mt-sm">
+<span class="rounded-full px-sm py-[2px] bg-surface-container font-label-md text-label-md text-on-surface-variant">Daily Life (日常)</span>
+</div>
+</div>
+</section>
+
+</main>
+</body></html>

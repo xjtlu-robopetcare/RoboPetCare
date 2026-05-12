@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RoboPetCare Onboarding</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary-container": "#5a432a",
+                        "tertiary-fixed-dim": "#e1c1a0",
+                        "inverse-surface": "#2a313d",
+                        "inverse-on-surface": "#ebf1ff",
+                        "on-primary-fixed": "#321200",
+                        "on-secondary-fixed-variant": "#004f50",
+                        "outline": "#877368",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#002020",
+                        "secondary-fixed-dim": "#7ed5d4",
+                        "on-error": "#ffffff",
+                        "secondary": "#006a6a",
+                        "surface-bright": "#f9f9ff",
+                        "on-tertiary-fixed": "#291804",
+                        "error-container": "#ffdad6",
+                        "background": "#f9f9ff",
+                        "surface-container": "#e7eefe",
+                        "primary-container": "#ff9f64",
+                        "surface-variant": "#dce2f3",
+                        "surface-dim": "#d3daea",
+                        "on-tertiary-fixed-variant": "#59432a",
+                        "inverse-primary": "#ffb68c",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#9af1f1",
+                        "primary-fixed": "#ffdbc9",
+                        "tertiary": "#725a3f",
+                        "tertiary-container": "#d0b191",
+                        "surface": "#f9f9ff",
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#944a16",
+                        "primary": "#944a16",
+                        "outline-variant": "#dac2b5",
+                        "on-surface-variant": "#54433a",
+                        "primary-fixed-dim": "#ffb68c",
+                        "tertiary-fixed": "#ffddbb",
+                        "on-background": "#151c27",
+                        "surface-container-low": "#f0f3ff",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#773400",
+                        "surface-container-high": "#e2e8f8",
+                        "on-secondary-container": "#006e6e",
+                        "secondary-container": "#97eeee",
+                        "on-surface": "#151c27",
+                        "surface-container-highest": "#dce2f3",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#753400"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "sm": "8px",
+                        "base": "8px",
+                        "xl": "32px",
+                        "xs": "4px",
+                        "lg": "24px",
+                        "gutter": "16px",
+                        "md": "16px",
+                        "margin": "20px"
+                    },
+                    fontFamily: {
+                        "headline-sm": ["Lexend"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Lexend"],
+                        "headline-md": ["Lexend"],
+                        "label-lg": ["Plus Jakarta Sans"],
+                        "body-sm": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"]
+                    },
+                    fontSize: {
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col items-center justify-center p-gutter font-body-md">
+<!-- Screen 0: Language Selection -->
+<div class="w-full max-w-md bg-surface-container-lowest rounded-xl shadow-[0_4px_24px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col h-[700px] mb-lg relative">
+<!-- Header -->
+<div class="p-lg flex justify-center items-center relative">
+<h1 class="font-headline-sm text-headline-sm text-secondary">RoboPetCare</h1>
+</div>
+<!-- Progress Indicator -->
+<div class="px-lg flex gap-sm mb-lg">
+<div class="h-2 flex-1 rounded-full bg-secondary"></div>
+<div class="h-2 flex-1 rounded-full bg-surface-variant"></div>
+<div class="h-2 flex-1 rounded-full bg-surface-variant"></div>
+<div class="h-2 flex-1 rounded-full bg-surface-variant"></div>
+</div>
+<!-- Content -->
+<div class="flex-1 px-lg flex flex-col items-center text-center">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-sm">Select Language<br/><span class="text-[20px]">选择语言</span></h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-xl">Choose your preferred language for the app.<br/><span class="text-[14px]">选择您喜欢的应用语言。</span></p>
+<!-- Language Options -->
+<div class="w-full flex flex-col gap-md">
+<label class="cursor-pointer w-full">
+<input checked="" class="peer sr-only" name="language" type="radio"/>
+<div class="w-full p-md bg-surface-container-low rounded-lg border border-outline-variant flex items-center justify-between peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container transition-all">
+<div class="font-label-lg text-label-lg text-on-surface peer-checked:text-on-secondary-container">English</div>
+<span class="material-symbols-outlined text-secondary opacity-0 peer-checked:opacity-100 transition-opacity">check_circle</span>
+</div>
+</label>
+<label class="cursor-pointer w-full">
+<input class="peer sr-only" name="language" type="radio"/>
+<div class="w-full p-md bg-surface-container-low rounded-lg border border-outline-variant flex items-center justify-between peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container transition-all">
+<div class="font-label-lg text-label-lg text-on-surface peer-checked:text-on-secondary-container">中文 (Chinese)</div>
+<span class="material-symbols-outlined text-secondary opacity-0 peer-checked:opacity-100 transition-opacity">check_circle</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Footer Action -->
+<div class="p-lg mt-auto">
+<button class="w-full bg-primary text-on-primary rounded-full py-md font-label-lg text-label-lg shadow-sm hover:opacity-90 transition-opacity min-h-[48px]">
+                Continue / 继续
+            </button>
+</div>
+</div>
+<!-- Screen 1: Welcome & Bluetooth Pairing (Mocked up side-by-side or stacked) -->
+<div class="w-full max-w-md bg-surface-container-lowest rounded-xl shadow-[0_4px_24px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col h-[700px] mb-lg relative">
+<!-- Header -->
+<div class="p-lg flex justify-between items-center relative">
+<button class="text-on-surface-variant hover:text-on-surface transition-colors p-xs rounded-full">
+<span class="material-symbols-outlined">
+                    arrow_back
+                </span>
+</button>
+<h1 class="font-headline-sm text-headline-sm text-secondary">RoboPetCare</h1>
+<div class="w-8"></div>
+</div>
+<!-- Progress Indicator -->
+<div class="px-lg flex gap-sm mb-lg">
+<div class="h-2 flex-1 rounded-full bg-secondary"></div>
+<div class="h-2 flex-1 rounded-full bg-secondary"></div>
+<div class="h-2 flex-1 rounded-full bg-surface-variant"></div>
+<div class="h-2 flex-1 rounded-full bg-surface-variant"></div>
+</div>
+<!-- Content -->
+<div class="flex-1 px-lg flex flex-col items-center text-center">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-sm">Let's Connect<br/><span class="text-[20px]">开始连接</span></h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-xl">Turn on your device and ensure Bluetooth is enabled on your phone.<br/><span class="text-[14px]">打开设备并确保手机蓝牙已开启。</span></p>
+<!-- Pairing Animation Graphic -->
+<div class="relative w-48 h-48 mb-xl flex items-center justify-center">
+<!-- Decorative rings -->
+<div class="absolute inset-0 border-2 border-secondary/20 rounded-full"></div>
+<div class="absolute inset-4 border-2 border-secondary/40 rounded-full"></div>
+<div class="absolute inset-8 border-2 border-secondary/60 rounded-full"></div>
+<!-- Device Icon -->
+<div class="w-20 h-20 bg-secondary rounded-full flex items-center justify-center shadow-lg relative z-10">
+<span class="material-symbols-outlined text-on-primary text-4xl" style="font-variation-settings: 'FILL' 1;">
+                        bluetooth
+                    </span>
+</div>
+</div>
+<p class="font-label-lg text-label-lg text-secondary mb-lg">Searching for devices...<br/><span class="font-normal text-[12px]">正在搜索设备...</span></p>
+<!-- Mock Device Found -->
+<div class="w-full p-md bg-surface-container-low rounded-lg border border-outline-variant flex items-center gap-md cursor-pointer hover:bg-surface-container transition-colors text-left mt-auto mb-lg">
+<div class="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container">
+                        pets
+                    </span>
+</div>
+<div>
+<div class="font-label-lg text-label-lg text-on-surface">RoboFeeder Pro</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Tap to pair / 点击配对</div>
+</div>
+</div>
+</div>
+<!-- Footer Action -->
+<div class="p-lg mt-auto">
+<button class="w-full bg-primary text-on-primary rounded-full py-md font-label-lg text-label-lg shadow-sm hover:opacity-90 transition-opacity min-h-[48px]">
+                Continue / 继续
+            </button>
+</div>
+</div>
+<!-- Screen 2: Pet Profile Form -->
+<div class="w-full max-w-md bg-surface-container-lowest rounded-xl shadow-[0_4px_24px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col h-[700px] relative">
+<!-- Header -->
+<div class="p-lg flex justify-between items-center relative">
+<button class="text-on-surface-variant hover:text-on-surface transition-colors p-xs rounded-full">
+<span class="material-symbols-outlined">
+                    arrow_back
+                </span>
+</button>
+<h1 class="font-headline-sm text-headline-sm text-secondary">RoboPetCare</h1>
+<div class="w-8"></div> <!-- Spacer -->
+</div>
+<!-- Progress Indicator -->
+<div class="px-lg flex gap-sm mb-lg">
+<div class="h-2 flex-1 rounded-full bg-secondary"></div>
+<div class="h-2 flex-1 rounded-full bg-secondary"></div>
+<div class="h-2 flex-1 rounded-full bg-secondary"></div>
+<div class="h-2 flex-1 rounded-full bg-surface-variant"></div>
+</div>
+<!-- Content -->
+<div class="flex-1 px-lg overflow-y-auto pb-lg">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-sm">Meet Your Pet<br/><span class="text-[20px]">认识您的宠物</span></h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-xl">Tell us a little about your furry friend to customize their care.<br/><span class="text-[14px]">向我们介绍一下您的毛孩子，以便定制他们的护理计划。</span></p>
+<!-- Avatar Upload -->
+<div class="flex flex-col items-center mb-xl">
+<div class="relative w-24 h-24 mb-sm">
+<div class="w-full h-full bg-surface-container rounded-full flex items-center justify-center overflow-hidden border-2 border-outline-variant">
+<img alt="Dog placeholder" class="w-full h-full object-cover" data-alt="cute beagle dog looking at camera on light background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCInf1CDVOVYvriKb49jNKwQnjBsRsWHshTl7IL70tL6GguwxmzJP68gYYuuu6IgM7Dpz1FUf0CZ_kso9McBvaS8_dvLH_70FUYZv3liG8JxHH7F7LSyOqTztLDJMS7gaWVQJigEn-0WMfrtUjj3GcFKoFBJD1DS68eZrpbfrbmiIuJZeNE0YNQmVYnrLReWZoJQkm8WeTazeXE39l4GJPUwEE_a73SklRkLGQCBMwgCfb5nSEvnXdyxsh71hFgDs-suxLxjzjSzsM"/>
+</div>
+<button class="absolute bottom-0 right-0 w-8 h-8 bg-secondary rounded-full flex items-center justify-center text-on-primary border-2 border-surface-container-lowest shadow-sm hover:bg-on-secondary-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">
+                            add_a_photo
+                        </span>
+</button>
+</div>
+<span class="font-label-md text-label-md text-secondary cursor-pointer">Add Photo / 添加照片</span>
+</div>
+<form class="flex flex-col gap-lg">
+<!-- Name Field -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-lg text-label-lg text-on-surface ml-xs">Pet Name / 宠物名字</label>
+<input class="w-full rounded-lg border-outline-variant bg-surface-bright p-md font-body-md text-body-md text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary transition-all outline-none" placeholder="e.g. Bella" type="text"/>
+</div>
+<!-- Species/Type Selection (Bento style) -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-lg text-label-lg text-on-surface ml-xs">Species / 种类</label>
+<div class="grid grid-cols-2 gap-sm">
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" name="species" type="radio"/>
+<div class="p-md rounded-lg border border-outline-variant bg-surface-bright flex flex-col items-center gap-sm peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container transition-all">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">pets</span>
+<span class="font-label-lg text-label-lg">Dog / 狗</span>
+</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="species" type="radio"/>
+<div class="p-md rounded-lg border border-outline-variant bg-surface-bright flex flex-col items-center gap-sm peer-checked:border-secondary peer-checked:bg-secondary-container peer-checked:text-on-secondary-container transition-all text-on-surface-variant">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">pets</span>
+<span class="font-label-lg text-label-lg">Cat / 猫</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Age / Weight Row -->
+<div class="grid grid-cols-2 gap-md">
+<div class="flex flex-col gap-xs">
+<label class="font-label-lg text-label-lg text-on-surface ml-xs">Age (Years) / 年龄 (岁)</label>
+<input class="w-full rounded-lg border-outline-variant bg-surface-bright p-md font-body-md text-body-md text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary transition-all outline-none" placeholder="0" type="number"/>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-lg text-label-lg text-on-surface ml-xs">Weight (kg) / 体重 (公斤)</label>
+<input class="w-full rounded-lg border-outline-variant bg-surface-bright p-md font-body-md text-body-md text-on-surface focus:border-secondary focus:ring-1 focus:ring-secondary transition-all outline-none" placeholder="0.0" type="number"/>
+</div>
+</div>
+</form>
+</div>
+<!-- Footer Action -->
+<div class="p-lg pt-sm mt-auto bg-surface-container-lowest">
+<button class="w-full bg-primary text-on-primary rounded-full py-md font-label-lg text-label-lg shadow-sm hover:opacity-90 transition-opacity min-h-[48px]">
+                Save Profile / 保存资料
+            </button>
+</div>
+</div>
+</body></html>

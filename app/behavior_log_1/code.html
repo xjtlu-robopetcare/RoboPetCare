@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RoboPetCare - Behavior Log</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#5a432a",
+                        "tertiary-fixed-dim": "#e1c1a0",
+                        "inverse-surface": "#2a313d",
+                        "inverse-on-surface": "#ebf1ff",
+                        "on-primary-fixed": "#321200",
+                        "on-secondary-fixed-variant": "#004f50",
+                        "outline": "#877368",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#002020",
+                        "secondary-fixed-dim": "#7ed5d4",
+                        "on-error": "#ffffff",
+                        "secondary": "#006a6a",
+                        "surface-bright": "#f9f9ff",
+                        "on-tertiary-fixed": "#291804",
+                        "error-container": "#ffdad6",
+                        "background": "#f9f9ff",
+                        "surface-container": "#e7eefe",
+                        "primary-container": "#ff9f64",
+                        "surface-variant": "#dce2f3",
+                        "surface-dim": "#d3daea",
+                        "on-tertiary-fixed-variant": "#59432a",
+                        "inverse-primary": "#ffb68c",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#9af1f1",
+                        "primary-fixed": "#ffdbc9",
+                        "tertiary": "#725a3f",
+                        "tertiary-container": "#d0b191",
+                        "surface": "#f9f9ff",
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#944a16",
+                        "primary": "#944a16",
+                        "outline-variant": "#dac2b5",
+                        "on-surface-variant": "#54433a",
+                        "primary-fixed-dim": "#ffb68c",
+                        "tertiary-fixed": "#ffddbb",
+                        "on-background": "#151c27",
+                        "surface-container-low": "#f0f3ff",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#773400",
+                        "surface-container-high": "#e2e8f8",
+                        "on-secondary-container": "#006e6e",
+                        "secondary-container": "#97eeee",
+                        "on-surface": "#151c27",
+                        "surface-container-highest": "#dce2f3",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#753400"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "8px",
+                        "base": "8px",
+                        "xl": "32px",
+                        "xs": "4px",
+                        "lg": "24px",
+                        "gutter": "16px",
+                        "md": "16px",
+                        "margin": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Lexend"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Lexend"],
+                        "headline-md": ["Lexend"],
+                        "label-lg": ["Plus Jakarta Sans"],
+                        "body-sm": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased pb-[96px] md:pb-0">
+<!-- TopAppBar -->
+<header class="bg-white shadow-[0_4px_20px_-5px_rgba(0,128,128,0.1)] border-b border-gray-100 font-[Lexend] tracking-tight flex justify-between items-center w-full px-4 h-16 fixed top-0 z-50">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-variant overflow-hidden">
+<img alt="Pet Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJgHsk6wPtmvmTVHcABqMWcIEjgUi4HA_ww7Lg6KyaEZL5bvJfRAdf5lsb66LvZoGIIvxtRDOE6St2QCWGX_Xmmu0idYdN-t3pFVJEKGQ6wypJ74AcYwOs7JDPP1Qr3WK9yvxDEa9EZXdzgDLisaGsPkfhlgSa3im9wAqOMi_fuH_k1JnVq0EzzuAa3w8IjdU4Ch1YcXAlRXY-vEsvQNcqF5cd0eJtEUGsXXSdkM66fIvp1fVs7McppQ1nF0zv_mhTntaMJmv8gzE"/>
+</div>
+<h1 class="text-[#FF9F64] font-extrabold text-xl tracking-tight">RoboPetCare</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="text-xs font-semibold px-2 py-1 border border-gray-200 rounded text-gray-500 hover:text-[#FF9F64] hover:border-[#FF9F64] transition-colors">EN/中</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-[#FF9F64] hover:bg-gray-50 transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+
+<!-- Main Content -->
+<main class="pt-[80px] px-margin md:px-xl max-w-5xl mx-auto space-y-lg">
+
+<!-- Page Header -->
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Behavior Log (行为日志)</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Track Bella's daily activities (追踪 Bella 的日常活动)</p>
+</div>
+
+<!-- View Toggle & Camera Button -->
+<div class="flex items-center justify-between">
+<div class="flex bg-surface-container-low rounded-lg p-1 border border-surface-variant">
+<button class="px-sm py-xs rounded text-on-surface font-label-md text-label-md bg-white shadow-sm transition-all">24h</button>
+<button class="px-sm py-xs rounded text-on-surface-variant font-label-md text-label-md hover:bg-surface-variant transition-all">7-Day (7天)</button>
+</div>
+<button class="flex items-center gap-xs bg-secondary text-on-secondary font-label-lg text-label-lg px-md py-sm rounded-lg hover:bg-secondary/90 transition-colors">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">videocam</span>
+Camera (摄像头)
+</button>
+</div>
+
+<!-- Camera Section -->
+<section class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-lg border border-surface-container relative overflow-hidden">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-secondary/10 rounded-full blur-2xl"></div>
+<!-- Camera Feed Preview -->
+<div class="relative rounded-xl overflow-hidden bg-gradient-to-br from-surface-container to-surface-container-high aspect-video flex items-center justify-center mb-md">
+<div class="text-center">
+<span class="material-symbols-outlined text-[48px] text-on-surface-variant/40" style="font-variation-settings: 'FILL' 1;">videocam</span>
+<p class="font-label-md text-label-md text-on-surface-variant/60 mt-xs">Camera Feed (摄像头画面)</p>
+</div>
+<!-- Live Badge -->
+<div class="absolute top-3 left-3 flex items-center gap-xs bg-error text-on-error rounded-full px-sm py-[2px]">
+<span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+<span class="font-label-md text-label-md">LIVE</span>
+</div>
+<!-- Capture Button -->
+<button class="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm text-on-surface rounded-full px-md py-xs flex items-center gap-xs shadow-md hover:bg-white transition-colors">
+<span class="material-symbols-outlined text-[18px]">photo_camera</span>
+<span class="font-label-lg text-label-lg">Capture (拍摄)</span>
+</button>
+</div>
+<!-- Captured Thumbnails -->
+<div class="flex gap-sm overflow-x-auto pb-xs">
+<div class="shrink-0 w-16 h-16 rounded-lg bg-surface-container border border-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant/50">image</span>
+</div>
+<div class="shrink-0 w-16 h-16 rounded-lg bg-surface-container border border-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant/50">image</span>
+</div>
+<div class="shrink-0 w-16 h-16 rounded-lg bg-surface-container border border-surface-variant flex items-center justify-center relative">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant/50">videocam</span>
+<span class="absolute bottom-1 right-1 w-3 h-3 rounded-full bg-error text-on-error flex items-center justify-center">
+<span class="text-[6px] font-bold">5s</span>
+</span>
+</div>
+<div class="shrink-0 w-16 h-16 rounded-lg bg-surface-container border border-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant/50">image</span>
+</div>
+<div class="shrink-0 w-16 h-16 rounded-lg bg-primary/10 border-2 border-dashed border-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px] text-primary">add</span>
+</div>
+</div>
+</section>
+
+<!-- Filter Chips -->
+<div class="flex gap-sm overflow-x-auto pb-xs">
+<button class="shrink-0 rounded-full px-md py-xs bg-secondary-container text-on-secondary-container font-label-lg text-label-lg border border-secondary/20">All (全部)</button>
+<button class="shrink-0 rounded-full px-md py-xs bg-surface-container text-on-surface-variant font-label-lg text-label-lg border border-outline-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[14px] align-middle mr-xs">directions_run</span>Movement (运动)
+</button>
+<button class="shrink-0 rounded-full px-md py-xs bg-surface-container text-on-surface-variant font-label-lg text-label-lg border border-outline-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[14px] align-middle mr-xs">hotel</span>Rest (休息)
+</button>
+<button class="shrink-0 rounded-full px-md py-xs bg-surface-container text-on-surface-variant font-label-lg text-label-lg border border-outline-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[14px] align-middle mr-xs">restaurant</span>Eating (进食)
+</button>
+<button class="shrink-0 rounded-full px-md py-xs bg-surface-container text-on-surface-variant font-label-lg text-label-lg border border-outline-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[14px] align-middle mr-xs">sports_esports</span>Playing (玩耍)
+</button>
+</div>
+
+<section class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-md border border-surface-container">
+<div class="flex items-center justify-between flex-wrap gap-2">
+<h3 class="font-headline-sm text-headline-sm text-secondary">24h Summary</h3>
+<span class="rounded-full px-sm py-[2px] bg-primary-container/25 text-on-primary-container font-label-md text-label-md">Watch</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-sm">Movement dropped below Bella's baseline between 2 PM and 5 PM. Eating and rest remained stable.</p>
+<div class="flex flex-wrap gap-2 mt-sm">
+<span class="rounded-full px-sm py-[2px] bg-surface-container-low text-on-surface-variant font-label-md text-label-md border border-surface-variant">Updated 10:24 AM</span>
+<span class="rounded-full px-sm py-[2px] bg-surface-container-low text-on-surface-variant font-label-md text-label-md border border-surface-variant">Coverage 21/24h</span>
+<span class="rounded-full px-sm py-[2px] bg-surface-container-low text-on-surface-variant font-label-md text-label-md border border-surface-variant">Confidence: Medium</span>
+</div>
+</section>
+
+<section class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-md border border-surface-container">
+<h3 class="font-headline-sm text-headline-sm text-secondary mb-sm">Evidence vs Personal Baseline</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+<div class="rounded-lg border border-surface-variant bg-surface-container-low p-3">
+<p class="font-label-md text-label-md text-on-surface-variant">Movement</p>
+<p class="font-label-lg text-label-lg text-on-surface mt-xs">-16%</p>
+<p class="font-label-md text-label-md text-on-surface-variant">below 7-day average</p>
+</div>
+<div class="rounded-lg border border-surface-variant bg-surface-container-low p-3">
+<p class="font-label-md text-label-md text-on-surface-variant">Rest</p>
+<p class="font-label-lg text-label-lg text-on-surface mt-xs">+3%</p>
+<p class="font-label-md text-label-md text-on-surface-variant">within expected range</p>
+</div>
+<div class="rounded-lg border border-surface-variant bg-surface-container-low p-3">
+<p class="font-label-md text-label-md text-on-surface-variant">Eating</p>
+<p class="font-label-lg text-label-lg text-on-surface mt-xs">-2%</p>
+<p class="font-label-md text-label-md text-on-surface-variant">stable meal behavior</p>
+</div>
+</div>
+</section>
+
+<!-- Behavior Timeline -->
+<section class="space-y-0">
+<!-- Date Header -->
+<div class="font-label-lg text-label-lg text-on-surface-variant mb-sm flex items-center gap-sm">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span>
+Today — April 22, 2026 (今天)
+</div>
+
+<!-- Timeline Container -->
+<div class="relative pl-lg">
+<!-- Vertical Line -->
+<div class="absolute left-[11px] top-2 bottom-2 w-0.5 bg-surface-variant"></div>
+
+<!-- Timeline Entry 1 - Movement -->
+<div class="relative pb-lg">
+<div class="absolute -left-lg top-1 w-[22px] h-[22px] rounded-full bg-secondary flex items-center justify-center z-10">
+<div class="w-2 h-2 rounded-full bg-white"></div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-md border border-surface-container ml-sm">
+<div class="flex items-start gap-sm">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">directions_run</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface">Movement (运动)</span>
+<span class="font-label-md text-label-md text-on-surface-variant">9:30 AM</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">Bella was running around the living room for 15 minutes (Bella 在客厅跑了 15 分钟)</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Timeline Entry 2 - Rest -->
+<div class="relative pb-lg">
+<div class="absolute -left-lg top-1 w-[22px] h-[22px] rounded-full bg-primary-container flex items-center justify-center z-10">
+<div class="w-2 h-2 rounded-full bg-white"></div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-md border border-surface-container ml-sm">
+<div class="flex items-start gap-sm">
+<div class="w-10 h-10 rounded-full bg-secondary-container/30 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary text-[20px]" style="font-variation-settings: 'FILL' 1;">hotel</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface">Rest (休息)</span>
+<span class="font-label-md text-label-md text-on-surface-variant">10:15 AM</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">Bella is napping on the sofa (Bella 在沙发上打盹)</p>
+<div class="flex items-center gap-xs mt-sm">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center border border-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant/50">image</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Timeline Entry 3 - Eating -->
+<div class="relative pb-lg">
+<div class="absolute -left-lg top-1 w-[22px] h-[22px] rounded-full bg-secondary flex items-center justify-center z-10">
+<div class="w-2 h-2 rounded-full bg-white"></div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-md border border-surface-container ml-sm">
+<div class="flex items-start gap-sm">
+<div class="w-10 h-10 rounded-full bg-tertiary-container/30 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-tertiary text-[20px]" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface">Eating (进食)</span>
+<span class="font-label-md text-label-md text-on-surface-variant">12:00 PM</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">Bella finished lunch — ate 0.8 cups of dry food in 12 minutes (Bella 吃完午餐 — 12分钟吃了0.8杯干粮)</p>
+<div class="flex items-center gap-xs mt-sm">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center border border-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant/50">image</span>
+</div>
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center border border-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant/50">image</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Timeline Entry 4 - Playing -->
+<div class="relative pb-lg">
+<div class="absolute -left-lg top-1 w-[22px] h-[22px] rounded-full bg-secondary flex items-center justify-center z-10">
+<div class="w-2 h-2 rounded-full bg-white"></div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-md border border-surface-container ml-sm">
+<div class="flex items-start gap-sm">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">sports_esports</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface">Playing (玩耍)</span>
+<span class="font-label-md text-label-md text-on-surface-variant">2:30 PM</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">Bella played with the ball toy for 20 minutes (Bella 玩了 20 分钟球类玩具)</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Timeline Entry 5 - Rest -->
+<div class="relative pb-lg">
+<div class="absolute -left-lg top-1 w-[22px] h-[22px] rounded-full bg-primary-container flex items-center justify-center z-10">
+<div class="w-2 h-2 rounded-full bg-white"></div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-md border border-surface-container ml-sm">
+<div class="flex items-start gap-sm">
+<div class="w-10 h-10 rounded-full bg-secondary-container/30 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary text-[20px]" style="font-variation-settings: 'FILL' 1;">hotel</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface">Rest (休息)</span>
+<span class="font-label-md text-label-md text-on-surface-variant">3:00 PM</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">Bella is resting under the desk (Bella 在桌子下面休息)</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Timeline Entry 6 - Movement -->
+<div class="relative pb-lg">
+<div class="absolute -left-lg top-1 w-[22px] h-[22px] rounded-full bg-secondary flex items-center justify-center z-10">
+<div class="w-2 h-2 rounded-full bg-white"></div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-md border border-surface-container ml-sm">
+<div class="flex items-start gap-sm">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">directions_run</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface">Movement (运动)</span>
+<span class="font-label-md text-label-md text-on-surface-variant">5:45 PM</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">Bella is walking around the kitchen area (Bella 在厨房区域走动)</p>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-md border border-surface-container">
+<h3 class="font-headline-sm text-headline-sm text-secondary mb-sm">Suggested Next Step</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Continue monitoring movement tomorrow. If movement stays below baseline for 2 more days, use the 7-day trend to confirm persistence.</p>
+</section>
+
+</main>
+
+<!-- BottomNavBar - 5 tabs -->
+<nav class="md:hidden bg-white/90 backdrop-blur-md fixed bottom-0 left-0 w-full z-50 rounded-t-2xl shadow-[0_-4px_20px_-5px_rgba(255,159,100,0.15)] border-t border-gray-100 flex justify-around items-center h-20 pb-safe pt-2 px-2">
+<a class="flex flex-col items-center justify-center text-gray-400 hover:text-[#FF9F64] active:scale-90 duration-200 transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+<span class="font-['Lexend'] text-[10px] font-medium leading-tight text-center">Home<br/>(首页)</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#FF9F64] bg-orange-50 rounded-xl px-3 py-1 active:scale-90 duration-200 transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="timeline" style="font-variation-settings: 'FILL' 1;">timeline</span>
+<span class="font-['Lexend'] text-[10px] font-medium leading-tight text-center">Behavior<br/>(行为日志)</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 hover:text-[#FF9F64] active:scale-90 duration-200 transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="forum">forum</span>
+<span class="font-['Lexend'] text-[10px] font-medium leading-tight text-center">Community<br/>(社区)</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 hover:text-[#FF9F64] active:scale-90 duration-200 transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="auto_awesome">auto_awesome</span>
+<span class="font-['Lexend'] text-[10px] font-medium leading-tight text-center">AI<br/>(AI分析)</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 hover:text-[#FF9F64] active:scale-90 duration-200 transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="font-['Lexend'] text-[10px] font-medium leading-tight text-center">Profile<br/>(我的)</span>
+</a>
+</nav>
+
+<!-- Desktop Nav -->
+<nav class="hidden md:flex fixed top-0 left-0 w-full h-16 bg-white/90 backdrop-blur-md border-b border-gray-100 z-50 items-center justify-center gap-xl shadow-[0_4px_20px_-5px_rgba(0,128,128,0.1)]">
+<span class="text-[#FF9F64] font-extrabold text-xl tracking-tight mr-xl">RoboPetCare</span>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-secondary transition-colors pb-sm border-b-2 border-transparent" href="#">Home (首页)</a>
+<a class="font-label-lg text-label-lg text-secondary pb-sm border-b-2 border-secondary" href="#">Behavior (行为日志)</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-secondary transition-colors pb-sm border-b-2 border-transparent" href="#">Community (社区)</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-secondary transition-colors pb-sm border-b-2 border-transparent" href="#">AI (AI分析)</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-secondary transition-colors pb-sm border-b-2 border-transparent" href="#">Profile (我的)</a>
+</nav>
+</body></html>

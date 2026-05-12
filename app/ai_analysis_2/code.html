@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RoboPetCare - Ask AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#5a432a",
+                        "tertiary-fixed-dim": "#e1c1a0",
+                        "inverse-surface": "#2a313d",
+                        "inverse-on-surface": "#ebf1ff",
+                        "on-primary-fixed": "#321200",
+                        "on-secondary-fixed-variant": "#004f50",
+                        "outline": "#877368",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#002020",
+                        "secondary-fixed-dim": "#7ed5d4",
+                        "on-error": "#ffffff",
+                        "secondary": "#006a6a",
+                        "surface-bright": "#f9f9ff",
+                        "on-tertiary-fixed": "#291804",
+                        "error-container": "#ffdad6",
+                        "background": "#f9f9ff",
+                        "surface-container": "#e7eefe",
+                        "primary-container": "#ff9f64",
+                        "surface-variant": "#dce2f3",
+                        "surface-dim": "#d3daea",
+                        "on-tertiary-fixed-variant": "#59432a",
+                        "inverse-primary": "#ffb68c",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#9af1f1",
+                        "primary-fixed": "#ffdbc9",
+                        "tertiary": "#725a3f",
+                        "tertiary-container": "#d0b191",
+                        "surface": "#f9f9ff",
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#944a16",
+                        "primary": "#944a16",
+                        "outline-variant": "#dac2b5",
+                        "on-surface-variant": "#54433a",
+                        "primary-fixed-dim": "#ffb68c",
+                        "tertiary-fixed": "#ffddbb",
+                        "on-background": "#151c27",
+                        "surface-container-low": "#f0f3ff",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#773400",
+                        "surface-container-high": "#e2e8f8",
+                        "on-secondary-container": "#006e6e",
+                        "secondary-container": "#97eeee",
+                        "on-surface": "#151c27",
+                        "surface-container-highest": "#dce2f3",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#753400"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "8px",
+                        "base": "8px",
+                        "xl": "32px",
+                        "xs": "4px",
+                        "lg": "24px",
+                        "gutter": "16px",
+                        "md": "16px",
+                        "margin": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Lexend"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Lexend"],
+                        "headline-md": ["Lexend"],
+                        "label-lg": ["Plus Jakarta Sans"],
+                        "body-sm": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased pb-[160px] md:pb-[140px]">
+<!-- TopAppBar -->
+<header class="bg-white shadow-[0_4px_20px_-5px_rgba(0,128,128,0.1)] border-b border-gray-100 font-[Lexend] tracking-tight flex justify-between items-center w-full px-4 h-16 fixed top-0 z-50">
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface hover:bg-gray-50 transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container text-[18px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div>
+<h1 class="text-on-surface font-semibold text-base leading-tight">Ask AI (AI 助手)</h1>
+<p class="font-label-md text-label-md text-secondary">Online (在线)</p>
+</div>
+</div>
+</div>
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-gray-50 transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</header>
+
+<!-- Chat Messages -->
+<main class="pt-[80px] px-margin md:px-xl max-w-3xl mx-auto space-y-lg">
+
+<!-- Welcome Message -->
+<div class="text-center py-lg">
+<div class="w-16 h-16 rounded-full bg-secondary-container flex items-center justify-center mx-auto mb-sm">
+<span class="material-symbols-outlined text-on-secondary-container text-[32px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Pet Behavior AI (宠物行为 AI)</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Ask me anything about Bella's behavior, health patterns, or care recommendations (问我任何关于 Bella 行为、健康或护理的问题)</p>
+</div>
+
+<!-- Suggested Questions -->
+<div class="flex gap-sm overflow-x-auto pb-xs">
+<button class="shrink-0 rounded-full px-md py-xs bg-surface-container text-on-surface-variant font-label-lg text-label-lg border border-outline-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[14px] align-middle mr-xs">trending_up</span>Activity trends? (活动趋势?)
+</button>
+<button class="shrink-0 rounded-full px-md py-xs bg-surface-container text-on-surface-variant font-label-lg text-label-lg border border-outline-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[14px] align-middle mr-xs">restaurant</span>Eating patterns? (饮食规律?)
+</button>
+<button class="shrink-0 rounded-full px-md py-xs bg-surface-container text-on-surface-variant font-label-lg text-label-lg border border-outline-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[14px] align-middle mr-xs">health_and_safety</span>Any concerns? (有问题吗?)
+</button>
+</div>
+
+<!-- User Message 1 -->
+<div class="flex justify-end">
+<div class="max-w-[80%]">
+<div class="bg-primary-container text-on-primary-container rounded-2xl rounded-br-sm p-md">
+<p class="font-body-md text-body-md">Why has Bella been less active this week? (为什么 Bella 这周不太活跃?)</p>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant mt-xs text-right">2:30 PM</p>
+</div>
+</div>
+
+<!-- AI Message 1 -->
+<div class="flex justify-start gap-sm">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center shrink-0 mt-1">
+<span class="material-symbols-outlined text-on-secondary-container text-[16px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div class="max-w-[80%]">
+<div class="bg-surface-container rounded-2xl rounded-bl-sm p-md">
+<p class="font-body-md text-body-md text-on-surface">
+Based on Bella's activity data, I've noticed a few patterns this week (根据 Bella 的活动数据，我注意到了一些规律):
+</p>
+<ul class="font-body-md text-body-md text-on-surface mt-sm space-y-xs list-disc list-inside">
+<li><span class="font-semibold text-secondary">15% decrease</span> in movement compared to last week (运动量比上周减少15%)</li>
+<li>Rest time increased by <span class="font-semibold text-secondary">8%</span>, especially during afternoon hours (下午休息时间增加8%)</li>
+<li>Play sessions dropped from <span class="font-semibold text-secondary">2.5 to 1.8</span> per day (每日玩耍次数从2.5降至1.8)</li>
+</ul>
+<p class="font-body-md text-body-md text-on-surface mt-sm">
+This could be related to seasonal changes, temperature adjustments, or mild discomfort. I recommend monitoring for another 3-5 days. If the trend continues, a vet visit would be advisable.
+</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-sm">
+这可能与季节变化、气温调整或轻微不适有关。建议继续观察3-5天，如果趋势持续，建议就医。
+</p>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant mt-xs">2:31 PM</p>
+</div>
+</div>
+
+<!-- User Message 2 -->
+<div class="flex justify-end">
+<div class="max-w-[80%]">
+<div class="bg-primary-container text-on-primary-container rounded-2xl rounded-br-sm p-md">
+<p class="font-body-md text-body-md">What about her eating habits? (那她的饮食习惯呢?)</p>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant mt-xs text-right">2:32 PM</p>
+</div>
+</div>
+
+<!-- AI Message 2 -->
+<div class="flex justify-start gap-sm">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center shrink-0 mt-1">
+<span class="material-symbols-outlined text-on-secondary-container text-[16px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div class="max-w-[80%]">
+<div class="bg-surface-container rounded-2xl rounded-bl-sm p-md">
+<p class="font-body-md text-body-md text-on-surface">
+Bella's eating habits are actually <span class="font-semibold text-secondary">quite stable</span> (Bella 的饮食习惯其实相当稳定):
+</p>
+<div class="bg-surface-container-low rounded-lg p-md mt-sm space-y-xs">
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Daily intake (每日摄入)</span>
+<span class="font-label-lg text-label-lg text-on-surface">2.1 cups</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Meal consistency (用餐规律)</span>
+<span class="font-label-lg text-label-lg text-secondary">95%</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Change vs last week (与上周对比)</span>
+<span class="font-label-lg text-label-lg text-primary">-8%</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface mt-sm">
+Her meal timing is very consistent — she eats within 5 minutes of each scheduled feeding. The 8% decrease in volume is minor and within normal daily variation. No concerns here.
+</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-sm">
+她的用餐时间非常规律。摄入量减少8%在正常波动范围内，无需担心。
+</p>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant mt-xs">2:33 PM</p>
+</div>
+</div>
+
+<!-- AI Typing Indicator -->
+<div class="flex justify-start gap-sm">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center shrink-0 mt-1">
+<span class="material-symbols-outlined text-on-secondary-container text-[16px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div class="bg-surface-container rounded-2xl rounded-bl-sm p-md">
+<div class="flex items-center gap-xs">
+<div class="w-2 h-2 rounded-full bg-on-surface-variant/40 animate-pulse"></div>
+<div class="w-2 h-2 rounded-full bg-on-surface-variant/40 animate-pulse" style="animation-delay: 0.2s"></div>
+<div class="w-2 h-2 rounded-full bg-on-surface-variant/40 animate-pulse" style="animation-delay: 0.4s"></div>
+</div>
+</div>
+</div>
+
+</main>
+
+<!-- Chat Input Bar -->
+<div class="fixed bottom-20 md:bottom-4 left-0 right-0 z-40 px-margin md:px-xl">
+<div class="max-w-3xl mx-auto">
+<!-- Suggested Follow-ups -->
+<div class="flex gap-sm overflow-x-auto pb-sm mb-sm">
+<button class="shrink-0 rounded-full px-sm py-[4px] bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md border border-outline-variant shadow-sm hover:bg-surface-container transition-colors">
+Should I change her food? (需要换粮吗?)
+</button>
+<button class="shrink-0 rounded-full px-sm py-[4px] bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md border border-outline-variant shadow-sm hover:bg-surface-container transition-colors">
+Sleep quality analysis (睡眠质量)
+</button>
+<button class="shrink-0 rounded-full px-sm py-[4px] bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md border border-outline-variant shadow-sm hover:bg-surface-container transition-colors">
+Weekly report (周报)
+</button>
+</div>
+<!-- Input -->
+<div class="bg-surface-container-lowest rounded-full border border-outline-variant flex items-center px-md py-sm shadow-lg">
+<span class="material-symbols-outlined text-secondary mr-sm">auto_awesome</span>
+<input type="text" class="flex-1 bg-transparent font-body-md text-body-md text-on-surface outline-none placeholder:text-on-surface-variant/50" placeholder="Ask about Bella (询问关于 Bella 的问题)...">
+<button class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center shrink-0 hover:bg-secondary/90 transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[20px]">send</span>
+</button>
+</div>
+</div>
+</div>
+
+<!-- BottomNavBar - 5 tabs -->
+<nav class="md:hidden bg-white/90 backdrop-blur-md fixed bottom-0 left-0 w-full z-50 rounded-t-2xl shadow-[0_-4px_20px_-5px_rgba(255,159,100,0.15)] border-t border-gray-100 flex justify-around items-center h-20 pb-safe pt-2 px-2">
+<a class="flex flex-col items-center justify-center text-gray-400 hover:text-[#FF9F64] active:scale-90 duration-200 transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+<span class="font-['Lexend'] text-[10px] font-medium leading-tight text-center">Home<br/>(首页)</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 hover:text-[#FF9F64] active:scale-90 duration-200 transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="timeline">timeline</span>
+<span class="font-['Lexend'] text-[10px] font-medium leading-tight text-center">Behavior<br/>(行为日志)</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 hover:text-[#FF9F64] active:scale-90 duration-200 transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="forum">forum</span>
+<span class="font-['Lexend'] text-[10px] font-medium leading-tight text-center">Community<br/>(社区)</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#FF9F64] bg-orange-50 rounded-xl px-3 py-1 active:scale-90 duration-200 transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-['Lexend'] text-[10px] font-medium leading-tight text-center">AI<br/>(AI分析)</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 hover:text-[#FF9F64] active:scale-90 duration-200 transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="font-['Lexend'] text-[10px] font-medium leading-tight text-center">Profile<br/>(我的)</span>
+</a>
+</nav>
+</body></html>

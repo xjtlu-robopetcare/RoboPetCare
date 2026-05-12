@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RoboPetCare - AI Analysis</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#5a432a",
+                        "tertiary-fixed-dim": "#e1c1a0",
+                        "inverse-surface": "#2a313d",
+                        "inverse-on-surface": "#ebf1ff",
+                        "on-primary-fixed": "#321200",
+                        "on-secondary-fixed-variant": "#004f50",
+                        "outline": "#877368",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#002020",
+                        "secondary-fixed-dim": "#7ed5d4",
+                        "on-error": "#ffffff",
+                        "secondary": "#006a6a",
+                        "surface-bright": "#f9f9ff",
+                        "on-tertiary-fixed": "#291804",
+                        "error-container": "#ffdad6",
+                        "background": "#f9f9ff",
+                        "surface-container": "#e7eefe",
+                        "primary-container": "#ff9f64",
+                        "surface-variant": "#dce2f3",
+                        "surface-dim": "#d3daea",
+                        "on-tertiary-fixed-variant": "#59432a",
+                        "inverse-primary": "#ffb68c",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#9af1f1",
+                        "primary-fixed": "#ffdbc9",
+                        "tertiary": "#725a3f",
+                        "tertiary-container": "#d0b191",
+                        "surface": "#f9f9ff",
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#944a16",
+                        "primary": "#944a16",
+                        "outline-variant": "#dac2b5",
+                        "on-surface-variant": "#54433a",
+                        "primary-fixed-dim": "#ffb68c",
+                        "tertiary-fixed": "#ffddbb",
+                        "on-background": "#151c27",
+                        "surface-container-low": "#f0f3ff",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#773400",
+                        "surface-container-high": "#e2e8f8",
+                        "on-secondary-container": "#006e6e",
+                        "secondary-container": "#97eeee",
+                        "on-surface": "#151c27",
+                        "surface-container-highest": "#dce2f3",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#753400"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "8px",
+                        "base": "8px",
+                        "xl": "32px",
+                        "xs": "4px",
+                        "lg": "24px",
+                        "gutter": "16px",
+                        "md": "16px",
+                        "margin": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Lexend"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Lexend"],
+                        "headline-md": ["Lexend"],
+                        "label-lg": ["Plus Jakarta Sans"],
+                        "body-sm": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .health-ring {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: conic-gradient(#006a6a 0% 78%, #e7eefe 78% 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .health-ring-inner {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .donut-chart {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: conic-gradient(#ff9f64 0% 35%, #006a6a 35% 65%, #d0b191 65% 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .donut-chart-inner {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased pb-[140px] md:pb-0">
+<!-- TopAppBar -->
+<header class="bg-white shadow-[0_4px_20px_-5px_rgba(0,128,128,0.1)] border-b border-gray-100 font-[Lexend] tracking-tight flex justify-between items-center w-full px-4 h-16 fixed top-0 z-50">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-variant overflow-hidden">
+<img alt="Pet Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJgHsk6wPtmvmTVHcABqMWcIEjgUi4HA_ww7Lg6KyaEZL5bvJfRAdf5lsb66LvZoGIIvxtRDOE6St2QCWGX_Xmmu0idYdN-t3pFVJEKGQ6wypJ74AcYwOs7JDPP1Qr3WK9yvxDEa9EZXdzgDLisaGsPkfhlgSa3im9wAqOMi_fuH_k1JnVq0EzzuAa3w8IjdU4Ch1YcXAlRXY-vEsvQNcqF5cd0eJtEUGsXXSdkM66fIvp1fVs7McppQ1nF0zv_mhTntaMJmv8gzE"/>
+</div>
+<h1 class="text-[#FF9F64] font-extrabold text-xl tracking-tight">RoboPetCare</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="text-xs font-semibold px-2 py-1 border border-gray-200 rounded text-gray-500 hover:text-[#FF9F64] hover:border-[#FF9F64] transition-colors">EN/中</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-[#FF9F64] hover:bg-gray-50 transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+
+<!-- Main Content -->
+<main class="pt-[80px] px-margin md:px-xl max-w-5xl mx-auto space-y-lg">
+
+<!-- Page Header -->
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">AI Analysis (AI 分析)</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Smart health insights for Bella (Bella 的智能健康洞察)</p>
+</div>
+
+<!-- Health Score Hero -->
+<section class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-lg border border-surface-container relative overflow-hidden">
+<div class="absolute -right-8 -top-8 w-32 h-32 bg-secondary/10 rounded-full blur-3xl"></div>
+<div class="absolute -left-4 -bottom-4 w-24 h-24 bg-primary-container/15 rounded-full blur-2xl"></div>
+<div class="flex flex-col md:flex-row items-center gap-lg relative z-10">
+<div class="health-ring shrink-0">
+<div class="health-ring-inner">
+<span class="font-headline-lg text-headline-lg text-secondary">78</span>
+<span class="font-label-md text-label-md text-on-surface-variant">/100</span>
+</div>
+</div>
+<div class="flex-1 text-center md:text-left">
+<h3 class="font-headline-md text-headline-md text-secondary mb-xs">Health Score (健康评分)</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Bella's overall health is <span class="font-label-lg text-label-lg text-secondary">Good (良好)</span>. Some activity changes noted this week.</p>
+<div class="flex items-center gap-sm mt-sm justify-center md:justify-start">
+<span class="rounded-full px-sm py-[2px] bg-secondary-container text-on-secondary-container font-label-md text-label-md">Updated today (今日更新)</span>
+<span class="rounded-full px-sm py-[2px] bg-primary-container/20 text-on-primary-container font-label-md text-label-md">7-day avg (7天均值)</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- AI Summary Card -->
+<section class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-lg border border-surface-container relative overflow-hidden">
+<div class="absolute -right-4 -top-4 w-20 h-20 bg-primary-container/10 rounded-full blur-2xl"></div>
+<div class="flex items-start gap-sm mb-sm relative z-10">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-secondary">AI Summary (AI 总结)</h3>
+</div>
+</div>
+<div class="pl-[52px] relative z-10">
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+Your cat has been <span class="text-primary font-semibold">15% less active</span> this week compared to last week. Eating patterns remain stable with consistent meal times. Rest time has increased by <span class="text-secondary font-semibold">8%</span>, which could indicate seasonal adjustment or mild discomfort. Play sessions decreased from 2.5 to 1.8 per day.
+</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-sm">
+你的猫咪本周活跃度比上周<span class="text-primary font-semibold">降低了15%</span>。饮食规律保持稳定。休息时间<span class="text-secondary font-semibold">增加了8%</span>，可能是季节性调整或轻微不适。
+</p>
+<button class="flex items-center gap-xs mt-sm text-secondary font-label-lg text-label-lg hover:underline">
+Read More (查看更多)
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</section>
+
+<!-- Charts Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+
+<!-- Weekly Comparison Chart -->
+<section class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-lg border border-surface-container">
+<h3 class="font-headline-sm text-headline-sm text-secondary mb-md">Activity Trend (活动趋势)</h3>
+<div class="flex-1 min-h-[180px] flex items-end gap-sm pt-xl">
+<!-- Mon -->
+<div class="flex-1 flex items-end gap-[2px] h-full">
+<div class="flex-1 bg-secondary/30 rounded-t-sm h-[60%]" title="Last Week"></div>
+<div class="flex-1 bg-secondary rounded-t-sm h-[45%]" title="This Week"></div>
+</div>
+<!-- Tue -->
+<div class="flex-1 flex items-end gap-[2px] h-[85%]">
+<div class="flex-1 bg-secondary/30 h-[50%]"></div>
+<div class="flex-1 bg-secondary rounded-t-sm h-[70%]"></div>
+</div>
+<!-- Wed -->
+<div class="flex-1 flex items-end gap-[2px] h-[90%]">
+<div class="flex-1 bg-secondary/30 h-[65%]"></div>
+<div class="flex-1 bg-secondary rounded-t-sm h-[55%]"></div>
+</div>
+<!-- Thu -->
+<div class="flex-1 flex items-end gap-[2px] h-[75%]">
+<div class="flex-1 bg-secondary/30 h-[55%]"></div>
+<div class="flex-1 bg-secondary rounded-t-sm h-[40%]"></div>
+</div>
+<!-- Fri -->
+<div class="flex-1 flex items-end gap-[2px] h-[80%]">
+<div class="flex-1 bg-secondary/30 h-[50%]"></div>
+<div class="flex-1 bg-secondary rounded-t-sm h-[50%]"></div>
+</div>
+<!-- Sat -->
+<div class="flex-1 flex items-end gap-[2px] h-[95%]">
+<div class="flex-1 bg-secondary/30 h-[70%]"></div>
+<div class="flex-1 bg-secondary rounded-t-sm h-[60%]"></div>
+</div>
+<!-- Sun -->
+<div class="flex-1 flex items-end gap-[2px] h-[70%]">
+<div class="flex-1 bg-secondary/30 h-[60%]"></div>
+<div class="flex-1 bg-secondary rounded-t-sm h-[35%]"></div>
+</div>
+</div>
+<div class="flex gap-sm mt-sm">
+<span class="flex-1 text-center font-label-md text-label-md text-on-surface-variant">Mon</span>
+<span class="flex-1 text-center font-label-md text-label-md text-on-surface-variant">Tue</span>
+<span class="flex-1 text-center font-label-md text-label-md text-on-surface-variant">Wed</span>
+<span class="flex-1 text-center font-label-md text-label-md text-on-surface-variant">Thu</span>
+<span class="flex-1 text-center font-label-md text-label-md text-on-surface-variant">Fri</span>
+<span class="flex-1 text-center font-label-md text-label-md text-on-surface-variant">Sat</span>
+<span class="flex-1 text-center font-label-md text-label-md text-on-surface-variant">Sun</span>
+</div>
+<div class="flex justify-center gap-md mt-md">
+<div class="flex items-center gap-xs font-label-md text-label-md text-on-surface-variant">
+<span class="w-3 h-3 rounded-full bg-secondary/30 inline-block"></span> Last Week (上周)
+</div>
+<div class="flex items-center gap-xs font-label-md text-label-md text-on-surface-variant">
+<span class="w-3 h-3 rounded-full bg-secondary inline-block"></span> This Week (本周)
+</div>
+</div>
+</section>
+
+<!-- Activity Distribution -->
+<section class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-lg border border-surface-container">
+<h3 class="font-headline-sm text-headline-sm text-secondary mb-md">Activity Split (活动分布)</h3>
+<div class="flex items-center justify-center gap-lg">
+<div class="donut-chart shrink-0">
+<div class="donut-chart-inner">
+<span class="material-symbols-outlined text-[20px] text-secondary" style="font-variation-settings: 'FILL' 1;">donut_large</span>
+</div>
+</div>
+<div class="space-y-sm">
+<div class="flex items-center gap-sm">
+<span class="w-3 h-3 rounded-full bg-primary-container inline-block"></span>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Movement (运动)</p>
+<p class="font-label-md text-label-md text-on-surface-variant">35%</p>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<span class="w-3 h-3 rounded-full bg-secondary inline-block"></span>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Rest (休息)</p>
+<p class="font-label-md text-label-md text-on-surface-variant">30%</p>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<span class="w-3 h-3 rounded-full bg-tertiary-container inline-block"></span>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">Eating (进食)</p>
+<p class="font-label-md text-label-md text-on-surface-variant">35%</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+</div>
+
+<!-- Anomaly Detection Card -->
+<section class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-surface-container overflow-hidden relative">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
+<div class="p-lg pl-lg">
+<div class="flex items-start gap-sm">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between flex-wrap gap-xs">
+<h3 class="font-headline-sm text-headline-sm text-primary">Anomaly Detected (异常检测)</h3>
+<span class="rounded-full px-sm py-[2px] bg-primary-container/20 text-on-primary-container font-label-md text-label-md">Moderate (中等)</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Decreased activity on Thursday and Sunday (周四和周日活跃度下降). Bella moved 40% less than her weekly average on these days. This pattern may suggest joint stiffness or weather-related behavior change.</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">周四和周日活跃度下降40%，可能暗示关节不适或天气影响。</p>
+<button class="flex items-center gap-xs mt-sm text-secondary font-label-lg text-label-lg hover:underline">
+View Details (查看详情)
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Recommendations -->
+<section>
+<h3 class="font-headline-sm text-headline-sm text-secondary mb-md">Recommendations (个性化建议)</h3>
+<div class="space-y-sm">
+<!-- Rec 1 -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-md border border-surface-container flex items-center gap-md hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-primary-container text-[20px]" style="font-variation-settings: 'FILL' 1;">sports_esports</span>
+</div>
+<div class="flex-1">
+<p class="font-label-lg text-label-lg text-on-surface">Increase playtime by 15 min/day (每天增加15分钟玩耍)</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Interactive toys can boost Bella's activity levels</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+<!-- Rec 2 -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-md border border-surface-container flex items-center gap-md hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-secondary-container text-[20px]" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+</div>
+<div class="flex-1">
+<p class="font-label-lg text-label-lg text-on-surface">Monitor water intake (监测饮水量)</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Ensure Bella stays hydrated during rest periods</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+<!-- Rec 3 -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-md border border-surface-container flex items-center gap-md hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="w-10 h-10 rounded-full bg-tertiary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-tertiary-container text-[20px]" style="font-variation-settings: 'FILL' 1;">schedule</span>
+</div>
+<div class="flex-1">
+<p class="font-label-lg text-label-lg text-on-surface">Adjust feeding schedule (调整喂食时间)</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Consider adding a mid-morning snack to maintain energy</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+<!-- Rec 4 -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-md border border-surface-container flex items-center gap-md hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="w-10 h-10 rounded-full bg-error-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-error-container text-[20px]" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+</div>
+<div class="flex-1">
+<p class="font-label-lg text-label-lg text-on-surface">Vet checkup recommended (建议体检)</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Annual checkup is due in 2 weeks</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+</div>
+</section>
+
+</main>
+
+<!-- Ask AI Input Bar -->
+<div class="fixed bottom-20 left-0 right-0 md:bottom-4 md:left-auto md:right-auto md:max-w-5xl md:mx-auto md:px-xl z-40 px-margin">
+<div class="bg-surface-container-lowest rounded-full border border-outline-variant flex items-center px-md py-sm shadow-lg">
+<span class="material-symbols-outlined text-secondary mr-sm">auto_awesome</span>
+<input type="text" class="flex-1 bg-transparent font-body-md text-body-md text-on-surface outline-none placeholder:text-on-surface-variant/50" placeholder="Ask about Bella's behavior (询问 Bella 的行为)...">
+<button class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center shrink-0 hover:bg-secondary/90 transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[20px]">send</span>
+</button>
+</div>
+</div>
+
+<!-- BottomNavBar - 5 tabs -->
+<nav class="md:hidden bg-white/90 backdrop-blur-md fixed bottom-0 left-0 w-full z-50 rounded-t-2xl shadow-[0_-4px_20px_-5px_rgba(255,159,100,0.15)] border-t border-gray-100 flex justify-around items-center h-20 pb-safe pt-2 px-2">
+<a class="flex flex-col items-center justify-center text-gray-400 hover:text-[#FF9F64] active:scale-90 duration-200 transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+<span class="font-['Lexend'] text-[10px] font-medium leading-tight text-center">Home<br/>(首页)</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 hover:text-[#FF9F64] active:scale-90 duration-200 transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="timeline">timeline</span>
+<span class="font-['Lexend'] text-[10px] font-medium leading-tight text-center">Behavior<br/>(行为日志)</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 hover:text-[#FF9F64] active:scale-90 duration-200 transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="forum">forum</span>
+<span class="font-['Lexend'] text-[10px] font-medium leading-tight text-center">Community<br/>(社区)</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#FF9F64] bg-orange-50 rounded-xl px-3 py-1 active:scale-90 duration-200 transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-['Lexend'] text-[10px] font-medium leading-tight text-center">AI<br/>(AI分析)</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 hover:text-[#FF9F64] active:scale-90 duration-200 transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="font-['Lexend'] text-[10px] font-medium leading-tight text-center">Profile<br/>(我的)</span>
+</a>
+</nav>
+
+<!-- Desktop Nav -->
+<nav class="hidden md:flex fixed top-0 left-0 w-full h-16 bg-white/90 backdrop-blur-md border-b border-gray-100 z-50 items-center justify-center gap-xl shadow-[0_4px_20px_-5px_rgba(0,128,128,0.1)]">
+<span class="text-[#FF9F64] font-extrabold text-xl tracking-tight mr-xl">RoboPetCare</span>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-secondary transition-colors pb-sm border-b-2 border-transparent" href="#">Home (首页)</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-secondary transition-colors pb-sm border-b-2 border-transparent" href="#">Behavior (行为日志)</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-secondary transition-colors pb-sm border-b-2 border-transparent" href="#">Community (社区)</a>
+<a class="font-label-lg text-label-lg text-secondary pb-sm border-b-2 border-secondary" href="#">AI (AI分析)</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-secondary transition-colors pb-sm border-b-2 border-transparent" href="#">Profile (我的)</a>
+</nav>
+</body></html>
